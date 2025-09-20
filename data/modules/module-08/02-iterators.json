@@ -1,0 +1,30 @@
+{
+    "title": "Итераторы и генераторы",
+    "theory": "**Итераторы и генераторы** — мощные инструменты для работы с последовательностями данных в Python.\n## Итераторы\n\n**Итератор** — объект, который реализует протокол итерации:\n- Метод `__iter__()` — возвращает сам объект\n- Метод `__next__()` — возвращает следующий элемент\n- При исчерпании элементов вызывает `StopIteration`\n\n**Создание собственного итератора:**\n```python\nclass CountDown:\n    def __init__(self, start):\n        self.start = start\n    \n    def __iter__(self):\n        return self\n    \n    def __next__(self):\n        if self.start <= 0:\n            raise StopIteration\n        self.start -= 1\n        return self.start + 1\n\n# Использование\ncounter = CountDown(3)\nfor num in counter:\n    print(num)  # 3, 2, 1\n```\n\n## Генераторы\n\n**Генератор** — функция, которая использует `yield` для создания итератора.\n\n**Основные особенности:**\n- Ленивые вычисления — значения вычисляются по требованию\n- Сохраняют состояние между вызовами\n- Память эффективны — не хранят все значения сразу\n\n**Создание генератора:**\n```python\ndef fibonacci(n):\n    a, b = 0, 1\n    count = 0\n    while count < n:\n        yield a\n        a, b = b, a + b\n        count += 1\n\n# Использование\nfor num in fibonacci(5):\n    print(num)  # 0, 1, 1, 2, 3\n```\n\n**Генераторные выражения:**\n```python\n# Аналогично list comprehension, но с круглыми скобками\nsquares_gen = (x**2 for x in range(5))\nprint(list(squares_gen))  # [0, 1, 4, 9, 16]\n```\n\n**Практические примеры:**\n```python\n# Генератор для чтения больших файлов\ndef read_large_file(filename):\n    with open(filename, 'r') as file:\n        for line in file:\n            yield line.strip()\n\n# Генератор для бесконечной последовательности\ndef infinite_counter():\n    count = 0\n    while True:\n        yield count\n        count += 1\n\n# Ограничение бесконечного генератора\ncounter = infinite_counter()\nfirst_5 = [next(counter) for _ in range(5)]\n# Результат: [0, 1, 2, 3, 4]\n```\n\n**Преимущества генераторов:**\n- Экономия памяти\n- Ленивые вычисления\n- Простота создания\n- Работа с бесконечными последовательностями",
+    "tasks": [
+        {
+            "id": "m8t5",
+            "question": "Как создать генератор с yield?",
+            "answer": "def gen(): yield 1",
+            "hint": "def функция(): yield значение"
+        },
+        {
+            "id": "m8t6",
+            "question": "Что делает yield в генераторе?",
+            "answer": "приостанавливает и возвращает значение",
+            "hint": "yield приостанавливает выполнение и возвращает значение."
+        },
+        {
+            "id": "m8t7",
+            "question": "Как получить следующее значение из итератора?",
+            "answer": "next()",
+            "hint": "Функция next(итератор)."
+        },
+        {
+            "id": "m8t8",
+            "question": "Можно ли использовать генератор в цикле for? (да/нет)",
+            "answer": "да",
+            "hint": "Генераторы — это итераторы."
+        }
+    ]
+}

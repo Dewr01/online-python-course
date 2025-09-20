@@ -1,0 +1,30 @@
+{
+    "title": "JSON",
+    "theory": "**Модуль json** — стандартный инструмент Python для работы с JSON (JavaScript Object Notation) данными.\n## Что такое JSON\n\n**JSON** — текстовый формат обмена данными, основанный на синтаксисе JavaScript. Легко читается людьми и обрабатывается программами.\n\n**Поддерживаемые типы данных:**\n- Строки: `\"hello\"`\n- Числа: `42`, `3.14`\n- Булевы значения: `true`, `false`\n- null: `null`\n- Массивы: `[1, 2, 3]`\n- Объекты: `{\"key\": \"value\"}`\n\n## Основные функции\n\n**1. json.dumps()** — Python объект в JSON строку:\n```python\nimport json\n\n# Словарь в JSON\nperson = {\n    \"name\": \"Анна\",\n    \"age\": 25,\n    \"city\": \"Москва\",\n    \"is_student\": True,\n    \"hobbies\": [\"чтение\", \"программирование\"]\n}\n\njson_string = json.dumps(person, ensure_ascii=False, indent=2)\nprint(json_string)\n# {\n#   \"name\": \"Анна\",\n#   \"age\": 25,\n#   \"city\": \"Москва\",\n#   \"is_student\": true,\n#   \"hobbies\": [\"чтение\", \"программирование\"]\n# }\n```\n\n**2. json.loads()** — JSON строка в Python объект:\n```python\njson_data = '{\"name\": \"Петр\", \"age\": 30, \"active\": true}'\nperson = json.loads(json_data)\nprint(person)  # {'name': 'Петр', 'age': 30, 'active': True}\nprint(type(person))  # <class 'dict'>\n```\n\n**3. json.dump()** — запись в файл:\n```python\n# Запись данных в файл\ndata = {\"users\": [\n    {\"name\": \"Алиса\", \"age\": 28},\n    {\"name\": \"Боб\", \"age\": 32}\n]}\n\nwith open('users.json', 'w', encoding='utf-8') as file:\n    json.dump(data, file, ensure_ascii=False, indent=2)\n```\n\n**4. json.load()** — чтение из файла:\n```python\n# Чтение данных из файла\nwith open('users.json', 'r', encoding='utf-8') as file:\n    data = json.load(file)\n    print(data)\n```\n\n## Параметры функций\n\n**Полезные параметры для json.dumps():**\n```python\n# ensure_ascii=False — поддержка кириллицы\n# indent=2 — красивое форматирование\n# separators=(',', ':') — компактный вывод\n# sort_keys=True — сортировка ключей\n\njson_string = json.dumps(\n    person, \n    ensure_ascii=False, \n    indent=2, \n    sort_keys=True\n)\n```\n\n## Обработка ошибок\n\n```python\nimport json\n\ndef safe_json_loads(json_string):\n    try:\n        return json.loads(json_string)\n    except json.JSONDecodeError as e:\n        print(f\"Ошибка парсинга JSON: {e}\")\n        return None\n    except Exception as e:\n        print(f\"Неожиданная ошибка: {e}\")\n        return None\n\n# Использование\nresult = safe_json_loads('{\"invalid\": json}')\nif result is None:\n    print(\"Не удалось загрузить JSON\")\n```\n\n## Работа с пользовательскими объектами\n\n**Сериализация пользовательских классов:**\n```python\nimport json\nfrom datetime import datetime\n\nclass Person:\n    def __init__(self, name, birth_date):\n        self.name = name\n        self.birth_date = birth_date\n    \n    def to_dict(self):\n        return {\n            \"name\": self.name,\n            \"birth_date\": self.birth_date.isoformat()\n        }\n    \n    @classmethod\n    def from_dict(cls, data):\n        return cls(\n            data[\"name\"],\n            datetime.fromisoformat(data[\"birth_date\"])\n        )\n\n# Создание объекта\nperson = Person(\"Мария\", datetime(1990, 5, 15))\n\n# Сериализация\nperson_dict = person.to_dict()\njson_string = json.dumps(person_dict, ensure_ascii=False)\nprint(json_string)\n\n# Десериализация\nloaded_dict = json.loads(json_string)\nloaded_person = Person.from_dict(loaded_dict)\nprint(loaded_person.name)  # Мария\n```\n\n## Практические примеры\n\n**Конфигурационные файлы:**\n```python\n# config.json\nconfig = {\n    \"database\": {\n        \"host\": \"localhost\",\n        \"port\": 5432,\n        \"name\": \"myapp\"\n    },\n    \"api\": {\n        \"timeout\": 30,\n        \"retries\": 3\n    }\n}\n\n# Сохранение конфигурации\nwith open('config.json', 'w') as f:\n    json.dump(config, f, indent=2)\n\n# Загрузка конфигурации\nwith open('config.json', 'r') as f:\n    loaded_config = json.load(f)\n    print(loaded_config['database']['host'])  # localhost\n```\n\n**API ответы:**\n```python\n# Имитация API ответа\napi_response = {\n    \"status\": \"success\",\n    \"data\": {\n        \"users\": [\n            {\"id\": 1, \"name\": \"Анна\"},\n            {\"id\": 2, \"name\": \"Петр\"}\n        ],\n        \"total\": 2\n    },\n    \"timestamp\": datetime.now().isoformat()\n}\n\n# Отправка JSON ответа\njson_response = json.dumps(api_response, ensure_ascii=False)\nprint(json_response)\n```\n\n**Преимущества JSON:**\n- Человекочитаемый формат\n- Легко парсится\n- Широкая поддержка языков программирования\n- Компактный размер\n- Идеален для API и конфигураций",
+    "tasks": [
+        {
+            "id": "m8t17",
+            "question": "Как преобразовать Python объект в JSON строку?",
+            "answer": "json.dumps()",
+            "hint": "json.dumps(объект) возвращает JSON строку."
+        },
+        {
+            "id": "m8t18",
+            "question": "Как преобразовать JSON строку в Python объект?",
+            "answer": "json.loads()",
+            "hint": "json.loads(строка) возвращает Python объект."
+        },
+        {
+            "id": "m8t19",
+            "question": "Что получится при json.loads('{\"name\": \"Python\"}')?",
+            "answer": "{'name': 'Python'}",
+            "hint": "JSON объект становится Python словарем."
+        },
+        {
+            "id": "m8t20",
+            "question": "Какой тип данных в JSON соответствует Python None?",
+            "answer": "null",
+            "hint": "null в JSON = None в Python."
+        }
+    ]
+}

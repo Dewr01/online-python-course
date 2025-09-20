@@ -1,0 +1,30 @@
+{
+    "title": "Виртуальное окружение",
+    "theory": "**Виртуальные окружения** — изоляция зависимостей Python для разных проектов.\n## Зачем нужны виртуальные окружения\n\n**Проблемы без изоляции:**\n- Конфликты версий пакетов между проектами\n- Сложность управления зависимостями\n- Проблемы при развертывании приложений\n- Загрязнение глобального окружения Python\n\n**Преимущества виртуальных окружений:**\n- Изоляция зависимостей каждого проекта\n- Возможность использования разных версий пакетов\n- Легкое воспроизведение окружения\n- Безопасность и стабильность\n\n## Создание виртуального окружения\n\n**Стандартный способ (venv):**\n```bash\n# Создание окружения\npython -m venv myproject_env\n\n# Активация (Windows)\nmyproject_env\\Scripts\\activate\n\n# Активация (Linux/Mac)\nsource myproject_env/bin/activate\n\n# Деактивация\ndeactivate\n```\n\n**Альтернативные инструменты:**\n```bash\n# conda (Anaconda/Miniconda)\nconda create --name myproject python=3.12\nconda activate myproject\n\n# virtualenv (устаревший)\npip install virtualenv\nvirtualenv myproject_env\n```\n\n## Работа с зависимостями\n\n**requirements.txt** — файл со списком зависимостей:\n```txt\nrequests==2.31.0\nnumpy>=1.24.0\npandas~=2.0.0\nflask>=2.3.0\n```\n\n**Установка зависимостей:**\n```bash\n# Установка из файла\npip install -r requirements.txt\n\n# Сохранение текущих зависимостей\npip freeze > requirements.txt\n\n# Установка конкретного пакета\npip install package_name==1.0.0\n```\n\n## В Pyodide (браузерная среда)\n\n**Особенности Pyodide:**\n- Работает в браузере, без сервера\n- Использует `micropip` вместо `pip`\n- Асинхронная установка пакетов\n- Ограниченный набор доступных пакетов\n\n**Установка пакетов в Pyodide:**\n```python\nimport micropip\n\n# Установка одного пакета\nawait micropip.install('numpy')\n\n# Установка нескольких пакетов\nawait micropip.install(['pandas', 'matplotlib'])\n\n# Установка с указанием версии\nawait micropip.install('requests==2.31.0')\n```\n\n## Практические примеры\n\n**Создание проекта с виртуальным окружением:**\n```bash\n# 1. Создание проекта\nmkdir my_web_app\ncd my_web_app\n\n# 2. Создание виртуального окружения\npython -m venv venv\n\n# 3. Активация\n# Windows:\nvenv\\Scripts\\activate\n# Linux/Mac:\nsource venv/bin/activate\n\n# 4. Установка зависимостей\npip install flask requests\n\n# 5. Сохранение зависимостей\npip freeze > requirements.txt\n\n# 6. Создание .gitignore\necho \"venv/\" >> .gitignore\n```\n\n**Воспроизведение окружения на другом компьютере:**\n```bash\n# 1. Клонирование проекта\ngit clone https://github.com/user/project.git\ncd project\n\n# 2. Создание виртуального окружения\npython -m venv venv\n\n# 3. Активация\n# Windows:\nvenv\\Scripts\\activate\n# Linux/Mac:\nsource venv/bin/activate\n\n# 4. Установка зависимостей\npip install -r requirements.txt\n```\n\n## Лучшие практики\n\n**Структура проекта:**\n```\nmy_project/\n├── venv/                 # Виртуальное окружение (не в git)\n├── src/                  # Исходный код\n├── tests/                # Тесты\n├── requirements.txt      # Зависимости\n├── .gitignore           # Игнорируемые файлы\n└── README.md            # Документация\n```\n\n**Рекомендации:**\n- Всегда используйте виртуальные окружения\n- Не коммитьте папку `venv/` в git\n- Обновляйте `requirements.txt` при изменении зависимостей\n- Используйте точные версии в production\n- Документируйте процесс установки в README",
+    "tasks": [
+        {
+            "id": "m9t1",
+            "question": "Для чего нужно виртуальное окружение?",
+            "answer": "изоляция зависимостей",
+            "hint": "Изоляция пакетов разных проектов."
+        },
+        {
+            "id": "m9t2",
+            "question": "Как создать виртуальное окружение?",
+            "answer": "python -m venv имя",
+            "hint": "python -m venv myenv"
+        },
+        {
+            "id": "m9t3",
+            "question": "Как активировать виртуальное окружение в Windows?",
+            "answer": "myenv\\Scripts\\activate",
+            "hint": "Путь к скрипту активации."
+        },
+        {
+            "id": "m9t4",
+            "question": "Какой инструмент используется в Pyodide для установки пакетов?",
+            "answer": "micropip",
+            "hint": "micropip — аналог pip для Pyodide."
+        }
+    ]
+}

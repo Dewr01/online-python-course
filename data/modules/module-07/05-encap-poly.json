@@ -1,0 +1,30 @@
+{
+    "title": "Инкапсуляция и полиморфизм",
+    "theory": "**Инкапсуляция и полиморфизм** — два важнейших принципа ООП.\n## Инкапсуляция\n\n**Инкапсуляция** — сокрытие внутренней реализации объекта от внешнего мира.\n\n**В Python используются соглашения об именовании:**\n\n1. **Публичные атрибуты** — доступны везде:\n```python\nclass BankAccount:\n    def __init__(self, balance):\n        self.balance = balance  # публичный\n```\n\n2. **Защищенные атрибуты** — `_` (одно подчеркивание):\n```python\nclass BankAccount:\n    def __init__(self, balance):\n        self._balance = balance  # защищенный\n        self._account_number = \"12345\"\n```\n\n3. **Приватные атрибуты** — `__` (два подчеркивания):\n```python\nclass BankAccount:\n    def __init__(self, balance):\n        self.__balance = balance  # приватный\n        self.__pin = \"0000\"\n```\n\n**Методы доступа (геттеры и сеттеры):**\n```python\nclass BankAccount:\n    def __init__(self, balance):\n        self.__balance = balance\n    \n    def get_balance(self):  # геттер\n        return self.__balance\n    \n    def set_balance(self, amount):  # сеттер\n        if amount >= 0:\n            self.__balance = amount\n        else:\n            print(\"Отрицательный баланс недопустим\")\n```\n\n## Полиморфизм\n\n**Полиморфизм** — способность объектов разных классов отвечать на одинаковые сообщения по-разному.\n\n```python\nclass Animal:\n    def make_sound(self):\n        return \"Звук\"\n\nclass Dog(Animal):\n    def make_sound(self):\n        return \"Гав!\"\n\nclass Cat(Animal):\n    def make_sound(self):\n        return \"Мяу!\"\n\n# Полиморфизм в действии\nanimals = [Dog(), Cat(), Animal()]\nfor animal in animals:\n    print(animal.make_sound())  # Гав! Мяу! Звук\n```\n\n**Преимущества:**\n- Гибкость кода\n- Легкость расширения\n- Единый интерфейс для разных типов",
+    "tasks": [
+        {
+            "id": "m7t17",
+            "question": "Как обозначить защищенный атрибут в Python?",
+            "answer": "_attr",
+            "hint": "Одно подчеркивание в начале имени."
+        },
+        {
+            "id": "m7t18",
+            "question": "Как обозначить приватный атрибут в Python?",
+            "answer": "__attr",
+            "hint": "Два подчеркивания в начале имени."
+        },
+        {
+            "id": "m7t19",
+            "question": "Что такое полиморфизм?",
+            "answer": "один интерфейс для разных типов",
+            "hint": "Разные классы могут иметь одинаковые методы."
+        },
+        {
+            "id": "m7t20",
+            "question": "Можно ли переопределить метод в дочернем классе? (да/нет)",
+            "answer": "да",
+            "hint": "Переопределение методов — основа полиморфизма."
+        }
+    ]
+}

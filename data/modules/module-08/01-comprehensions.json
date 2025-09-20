@@ -1,0 +1,30 @@
+{
+    "title": "Генераторы списков и словарей",
+    "theory": "**Генераторы списков и словарей** — элегантный и эффективный способ создания коллекций в Python.\n## List Comprehensions (Генераторы списков)\n\n**Основной синтаксис:**\n```python\n[выражение for элемент in последовательность if условие]\n```\n\n**Простые примеры:**\n```python\n# Квадраты чисел от 1 до 5\nsquares = [x**2 for x in range(1, 6)]\n# Результат: [1, 4, 9, 16, 25]\n\n# Четные числа от 1 до 10\nevens = [x for x in range(1, 11) if x % 2 == 0]\n# Результат: [2, 4, 6, 8, 10]\n\n# Длины слов\nwords = [\"hello\", \"world\", \"python\"]\nlengths = [len(word) for word in words]\n# Результат: [5, 5, 6]\n```\n\n**Сложные примеры:**\n```python\n# Обработка строк\nnames = [\"alice\", \"bob\", \"charlie\"]\ncapitalized = [name.capitalize() for name in names]\n# Результат: ['Alice', 'Bob', 'Charlie']\n\n# Вложенные циклы\nmatrix = [[1, 2], [3, 4], [5, 6]]\nflattened = [item for row in matrix for item in row]\n# Результат: [1, 2, 3, 4, 5, 6]\n```\n\n## Dict Comprehensions (Генераторы словарей)\n\n**Синтаксис:**\n```python\n{ключ: значение for элемент in последовательность if условие}\n```\n\n**Примеры:**\n```python\n# Словарь квадратов\nsquares_dict = {x: x**2 for x in range(1, 6)}\n# Результат: {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}\n\n# Фильтрация словаря\noriginal = {'a': 1, 'b': 2, 'c': 3, 'd': 4}\nfiltered = {k: v for k, v in original.items() if v > 2}\n# Результат: {'c': 3, 'd': 4}\n\n# Обращение ключей и значений\nreversed_dict = {v: k for k, v in original.items()}\n# Результат: {1: 'a', 2: 'b', 3: 'c', 4: 'd'}\n```\n\n## Set Comprehensions (Генераторы множеств)\n\n```python\n# Уникальные длины слов\nwords = [\"hello\", \"world\", \"python\", \"code\"]\nunique_lengths = {len(word) for word in words}\n# Результат: {4, 5, 6}\n```\n\n**Преимущества:**\n- Более читаемый код\n- Лучшая производительность\n- Меньше строк кода\n- Функциональный стиль программирования",
+    "tasks": [
+        {
+            "id": "m8t1",
+            "question": "Как создать список квадратов чисел от 1 до 5?",
+            "answer": "[x**2 for x in range(1,6)]",
+            "hint": "[выражение for переменная in range()]"
+        },
+        {
+            "id": "m8t2",
+            "question": "Как создать список четных чисел от 1 до 10?",
+            "answer": "[x for x in range(1,11) if x%2==0]",
+            "hint": "[x for x in range() if условие]"
+        },
+        {
+            "id": "m8t3",
+            "question": "Как создать словарь {1:1, 2:4, 3:9}?",
+            "answer": "{x: x**2 for x in range(1,4)}",
+            "hint": "{ключ: значение for переменная in range()}"
+        },
+        {
+            "id": "m8t4",
+            "question": "Что получится при [x*2 for x in [1,2,3]]?",
+            "answer": "[2,4,6]",
+            "hint": "Каждый элемент умножается на 2."
+        }
+    ]
+}

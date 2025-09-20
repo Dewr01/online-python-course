@@ -1,0 +1,30 @@
+{
+    "title": "Атрибуты и методы",
+    "theory": "**Атрибуты и методы** — основные компоненты классов в Python.\n**Типы атрибутов:**\n\n1. **Атрибуты экземпляра** — принадлежат конкретному объекту:\n```python\nclass Person:\n    def __init__(self, name):\n        self.name = name  # атрибут экземпляра\n        self.age = 0\n```\n\n2. **Атрибуты класса** — общие для всех объектов класса:\n```python\nclass Person:\n    species = \"Homo sapiens\"  # атрибут класса\n    \n    def __init__(self, name):\n        self.name = name\n```\n\n**Методы экземпляра** — функции, работающие с конкретным объектом:\n```python\nclass Person:\n    def __init__(self, name):\n        self.name = name\n    \n    def greet(self):  # self — ссылка на объект\n        return f\"Привет, я {self.name}\"\n    \n    def have_birthday(self):\n        self.age += 1\n        return f\"Мне теперь {self.age} лет\"\n```\n\n**Доступ к атрибутам и методам:**\n- `obj.attribute` — доступ к атрибуту\n- `obj.method()` — вызов метода\n- `obj.new_attr = value` — добавление нового атрибута\n\n**Важно:** Python позволяет добавлять атрибуты объекту в любой момент!",
+    "tasks": [
+        {
+            "id": "m7t5",
+            "question": "Какой первый параметр у метода экземпляра?",
+            "answer": "self",
+            "hint": "self — ссылка на объект."
+        },
+        {
+            "id": "m7t6",
+            "question": "Как обратиться к атрибуту name объекта obj?",
+            "answer": "obj.name",
+            "hint": "объект.атрибут"
+        },
+        {
+            "id": "m7t7",
+            "question": "Как вызвать метод greet() объекта obj?",
+            "answer": "obj.greet()",
+            "hint": "объект.метод()"
+        },
+        {
+            "id": "m7t8",
+            "question": "Можно ли добавить атрибут объекту после создания? (да/нет)",
+            "answer": "да",
+            "hint": "obj.new_attr = value"
+        }
+    ]
+}

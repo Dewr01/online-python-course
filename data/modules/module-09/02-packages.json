@@ -1,0 +1,30 @@
+{
+    "title": "Установка библиотек (micropip)",
+    "theory": "**Установка библиотек** — управление внешними пакетами Python для расширения функциональности.\n## Стандартная установка (pip)\n\n**pip** — стандартный менеджер пакетов Python:\n```bash\n# Установка пакета\npip install package_name\n\n# Установка конкретной версии\npip install package_name==1.2.3\n\n# Установка из requirements.txt\npip install -r requirements.txt\n\n# Обновление пакета\npip install --upgrade package_name\n\n# Удаление пакета\npip uninstall package_name\n\n# Просмотр установленных пакет\npip list\n\n# Поиск пакетов\npip search package_name\n```\n\n## Популярные библиотеки\n\n**Для работы с данными:**\n```bash\npip install numpy      # Численные вычисления\npip install pandas     # Анализ данных\npip install matplotlib # Графики и визуализация\npip install seaborn    # Статистическая визуализация\n```\n\n**Для веб-разработки:**\n```bash\npip install flask      # Минималистичный веб-фреймворк\npip install django     # Полнофункциональный веб-фреймворк\npip install fastapi    # Современный API фреймворк\npip install requests   # HTTP клиент\n```\n\n**Для машинного обучения:**\n```bash\npip install scikit-learn  # Машинное обучение\npip install tensorflow    # Глубокое обучение\npip install torch         # PyTorch\npip install opencv-python # Компьютерное зрение\n```\n\n## В Pyodide (браузерная среда)\n\n**Особенности Pyodide:**\n- Работает в браузере без сервера\n- Использует `micropip` вместо `pip`\n- Асинхронная установка пакетов\n- Ограниченный набор доступных пакетов\n\n**Установка в Pyodide:**\n```python\nimport micropip\n\n# Установка одного пакета\nawait micropip.install('numpy')\n\n# Установка нескольких пакетов\nawait micropip.install(['pandas', 'matplotlib'])\n\n# Установка с указанием версии\nawait micropip.install('requests==2.31.0')\n\n# Проверка установленных пакетов\nimport pkg_resources\ninstalled = [d.project_name for d in pkg_resources.working_set]\nprint(installed)\n```\n\n## Работа с зависимостями\n\n**requirements.txt** — файл зависимостей:\n```txt\n# requirements.txt\nrequests==2.31.0\nnumpy>=1.24.0\npandas~=2.0.0\nflask>=2.3.0\nmatplotlib\n```\n\n**Спецификаторы версий:**\n- `==2.31.0` — точная версия\n- `>=1.24.0` — версия или новее\n- `~=2.0.0` — совместимая версия (>=2.0.0, <2.1.0)\n- `>1.0.0,<2.0.0` — диапазон версий\n\n## Управление пакетами\n\n**Создание виртуального окружения:**\n```bash\n# Создание\npython -m venv myenv\n\n# Активация (Windows)\nmyenv\\Scripts\\activate\n\n# Активация (Linux/Mac)\nsource myenv/bin/activate\n\n# Установка пакетов\npip install requests numpy\n\n# Сохранение зависимостей\npip freeze > requirements.txt\n\n# Деактивация\ndeactivate\n```\n\n## Практические примеры\n\n**Установка для веб-проекта:**\n```bash\n# Создание проекта\nmkdir my_web_app\ncd my_web_app\npython -m venv venv\n\n# Активация\n# Windows: venv\\Scripts\\activate\n# Linux/Mac: source venv/bin/activate\n\n# Установка зависимостей\npip install flask requests python-dotenv\n\n# Создание requirements.txt\npip freeze > requirements.txt\n```\n\n**Установка для анализа данных:**\n```bash\n# Установка Jupyter и библиотек для анализа\npip install jupyter numpy pandas matplotlib seaborn\n\n# Запуск Jupyter\njupyter notebook\n```\n\n**Установка в Pyodide (веб-приложение):**\n```python\n# В HTML файле с Pyodide\n<script type=\"text/javascript\">\n  async function main() {\n    // Загрузка Pyodide\n    let pyodide = await loadPyodide();\n    \n    // Установка пакетов\n    await pyodide.loadPackage(\"micropip\");\n    await pyodide.runPythonAsync(`\n      import micropip\n      await micropip.install(['numpy', 'pandas'])\n      import numpy as np\n      import pandas as pd\n      print(\"Пакеты установлены!\")\n    `);\n  }\n  main();\n</script>\n```\n\n## Лучшие практики\n\n**Рекомендации:**\n- Всегда используйте виртуальные окружения\n- Фиксируйте версии в production\n- Регулярно обновляйте зависимости\n- Проверяйте безопасность пакетов\n- Документируйте зависимости в README\n- Используйте `pip-tools` для управления версиями\n\n**Безопасность:**\n```bash\n# Проверка уязвимостей\npip install safety\nsafety check\n\n# Аудит зависимостей\npip install pip-audit\npip-audit\n```",
+    "tasks": [
+        {
+            "id": "m9t5",
+            "question": "Как установить пакет в Pyodide?",
+            "answer": "await micropip.install('package')",
+            "hint": "await micropip.install('имя_пакета')"
+        },
+        {
+            "id": "m9t6",
+            "question": "Можно ли установить numpy в Pyodide? (да/нет)",
+            "answer": "да",
+            "hint": "numpy поддерживается в Pyodide."
+        },
+        {
+            "id": "m9t7",
+            "question": "Нужно ли использовать await при установке пакетов? (да/нет)",
+            "answer": "да",
+            "hint": "micropip.install() — асинхронная функция."
+        },
+        {
+            "id": "m9t8",
+            "question": "Где происходит установка пакетов в Pyodide?",
+            "answer": "в браузере",
+            "hint": "Все работает в браузере, без сервера."
+        }
+    ]
+}

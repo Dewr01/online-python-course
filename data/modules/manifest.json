@@ -1,0 +1,113 @@
+{
+  "modules": [
+    {
+      "id": "module-01",
+      "title": "Модуль 1. Введение",
+      "topics": [
+        { "id": "m1-01-what-is-python", "title": "Что такое Python и зачем он нужен", "path": "data/modules/module-01/01-what-is-python.json" },
+        { "id": "m1-02-install-run", "title": "Установка и запуск Python (Pyodide)", "path": "data/modules/module-01/02-install-run.json" },
+        { "id": "m1-03-hello-world", "title": "Первая программа: print(\"Hello, World!\")", "path": "data/modules/module-01/03-hello-world.json" },
+        { "id": "m1-04-types", "title": "Переменные и типы данных", "path": "data/modules/module-01/04-types.json" },
+        { "id": "m1-05-io", "title": "Ввод и вывод данных", "path": "data/modules/module-01/05-io.json" }
+      ]
+    },
+    {
+      "id": "module-02",
+      "title": "Модуль 2. Основы синтаксиса",
+      "topics": [
+        { "id": "m2-01-arithmetic", "title": "Арифметические операции", "path": "data/modules/module-02/01-arithmetic.json" },
+        { "id": "m2-02-logic", "title": "Логические операции", "path": "data/modules/module-02/02-logic.json" },
+        { "id": "m2-03-if", "title": "Условные конструкции", "path": "data/modules/module-02/03-if.json" },
+        { "id": "m2-04-loops", "title": "Циклы (for, while)", "path": "data/modules/module-02/04-loops.json" },
+        { "id": "m2-05-loop-control", "title": "Управление циклом", "path": "data/modules/module-02/05-loop-control.json" }
+      ]
+    },
+    {
+      "id": "module-03",
+      "title": "Модуль 3. Структуры данных",
+      "topics": [
+        { "id": "m3-01-lists", "title": "Списки", "path": "data/modules/module-03/01-lists.json" },
+        { "id": "m3-02-tuples", "title": "Кортежи", "path": "data/modules/module-03/02-tuples.json" },
+        { "id": "m3-03-sets", "title": "Множества", "path": "data/modules/module-03/03-sets.json" },
+        { "id": "m3-04-dicts", "title": "Словари", "path": "data/modules/module-03/04-dicts.json" },
+        { "id": "m3-05-nested", "title": "Вложенные структуры", "path": "data/modules/module-03/05-nested.json" }
+      ]
+    },
+    {
+      "id": "module-04",
+      "title": "Модуль 4. Функции и модули",
+      "topics": [
+        { "id": "m4-01-def", "title": "Определение функций", "path": "data/modules/module-04/01-def.json" },
+        { "id": "m4-02-args", "title": "Аргументы функций", "path": "data/modules/module-04/02-args.json" },
+        { "id": "m4-03-return", "title": "Возврат значений", "path": "data/modules/module-04/03-return.json" },
+        { "id": "m4-04-lambda", "title": "Лямбда-функции", "path": "data/modules/module-04/04-lambda.json" },
+        { "id": "m4-05-imports", "title": "Импорт модулей", "path": "data/modules/module-04/05-imports.json" }
+      ]
+    },
+    {
+      "id": "module-05",
+      "title": "Модуль 5. Строки и файлы",
+      "topics": [
+        { "id": "m5-01-str-methods", "title": "Методы строк", "path": "data/modules/module-05/01-str-methods.json" },
+        { "id": "m5-02-fstrings", "title": "Форматирование строк", "path": "data/modules/module-05/02-fstrings.json" },
+        { "id": "m5-03-files", "title": "Работа с файлами", "path": "data/modules/module-05/03-files.json" },
+        { "id": "m5-04-with", "title": "Контекстный менеджер with", "path": "data/modules/module-05/04-with.json" }
+      ]
+    },
+    {
+      "id": "module-06",
+      "title": "Модуль 6. Ошибки и исключения",
+      "topics": [
+        { "id": "m6-01-errors", "title": "Типы ошибок", "path": "data/modules/module-06/01-errors.json" },
+        { "id": "m6-02-try-except", "title": "try/except", "path": "data/modules/module-06/02-try-except.json" },
+        { "id": "m6-03-else-finally", "title": "else/finally", "path": "data/modules/module-06/03-else-finally.json" },
+        { "id": "m6-04-custom", "title": "Собственные исключения", "path": "data/modules/module-06/04-custom.json" }
+      ]
+    },
+    {
+      "id": "module-07",
+      "title": "Модуль 7. ООП",
+      "topics": [
+        { "id": "m7-01-classes", "title": "Классы и объекты", "path": "data/modules/module-07/01-classes.json" },
+        { "id": "m7-02-attrs", "title": "Атрибуты и методы", "path": "data/modules/module-07/02-attrs.json" },
+        { "id": "m7-03-init", "title": "Конструктор __init__", "path": "data/modules/module-07/03-init.json" },
+        { "id": "m7-04-inheritance", "title": "Наследование", "path": "data/modules/module-07/04-inheritance.json" },
+        { "id": "m7-05-encap", "title": "Инкапсуляция и полиморфизм", "path": "data/modules/module-07/05-encap-poly.json" }
+      ]
+    },
+    {
+      "id": "module-08",
+      "title": "Модуль 8. Продвинутые темы",
+      "topics": [
+        { "id": "m8-01-comprehensions", "title": "Генераторы списков и словарей", "path": "data/modules/module-08/01-comprehensions.json" },
+        { "id": "m8-02-iterators", "title": "Итераторы и генераторы", "path": "data/modules/module-08/02-iterators.json" },
+        { "id": "m8-03-decorators", "title": "Декораторы", "path": "data/modules/module-08/03-decorators.json" },
+        { "id": "m8-04-datetime", "title": "datetime", "path": "data/modules/module-08/04-datetime.json" },
+        { "id": "m8-05-json", "title": "JSON", "path": "data/modules/module-08/05-json.json" }
+      ]
+    },
+    {
+      "id": "module-09",
+      "title": "Модуль 9. Практика Junior",
+      "topics": [
+        { "id": "m9-01-venv", "title": "Виртуальное окружение", "path": "data/modules/module-09/01-venv.json" },
+        { "id": "m9-02-packages", "title": "Установка библиотек (micropip)", "path": "data/modules/module-09/02-packages.json" },
+        { "id": "m9-03-testing", "title": "Тестирование", "path": "data/modules/module-09/03-testing.json" },
+        { "id": "m9-04-mini-calc", "title": "Мини-проект: калькулятор", "path": "data/modules/module-09/04-mini-calc.json" },
+        { "id": "m9-05-mini-todo", "title": "Мини-проект: ToDo-лист", "path": "data/modules/module-09/05-mini-todo.json" },
+        { "id": "m9-06-mini-chatbot", "title": "Мини-проект: чат-бот", "path": "data/modules/module-09/06-mini-chatbot.json" }
+      ]
+    },
+    {
+      "id": "module-10",
+      "title": "Модуль 10. Итоговый проект",
+      "topics": [
+        { "id": "m10-01-build", "title": "Сборка мини-приложения", "path": "data/modules/module-10/01-build.json" },
+        { "id": "m10-02-qa", "title": "Проверка и тестирование", "path": "data/modules/module-10/02-qa.json" },
+        { "id": "m10-03-polish", "title": "Оформление проекта", "path": "data/modules/module-10/03-polish.json" }
+      ]
+    }
+  ]
+}
+
+
