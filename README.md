@@ -9,7 +9,7 @@
 
 ### 1. Клонирование
 ```bash
-git clone [https://github.com/Dewr01/online-python-course.git](https://github.com/Dewr01/online-python-course.git)
+git clone https://github.com/Dewr01/online-python-course.git
 cd online-python-course
 ```
 
