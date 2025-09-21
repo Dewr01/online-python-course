@@ -7,17 +7,30 @@
 
 ## 🚀 Быстрый старт
 
-### 1. Установка зависимостей
+### 1. Клонирование
+```bash
+git clone [https://github.com/Dewr01/online-python-course.git](https://github.com/Dewr01/online-python-course.git)
+cd online-python-course
+```
+
+### 2. Виртуальное окружение
+```bash
+python -m venv .venv
+source .venv/bin/activate   # Linux/macOS
+.venv\Scripts\activate    # Windows
+```
+
+### 3. Установка зависимостей
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2. Запуск сервера
+### 4. Запуск сервера
 ```bash
 python main.py
 ```
 
-### 3. Открыть в браузере
+### 5. Открыть в браузере
 ```bash
 http://localhost:8000
 ```
